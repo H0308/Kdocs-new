@@ -33,7 +33,7 @@ and colored alert / blockquote accents.
 
     /* ---- Typography ---- */
     --font-body: "Alibaba PuHuiTi 2.0", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
-    --font-mono: "Google Sans Code", "Alibaba PuHuiTi 2.0", "Cascadia Code", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
+    --font-mono: "Google Sans Code", "Cascadia Code", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
 
     --font-size: 16px;
     --line-height: 2;          /* 32px for body text */
