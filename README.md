@@ -16,4 +16,4 @@
 
 ## 使用
 
-下载[主题CSS文件](https://github.com/H0308/Kdocs-new/blob/main/kdocs-new.css)放在Typora主题目录，重启Typora选择`Kdocs New`主题即可。如果需要字体文件，可以前往[字体目录](https://github.com/H0308/Kdocs-new/tree/main/fonts)进行获取
+下载[主题CSS文件](https://github.com/H0308/Kdocs-new/blob/main/kdocs-new.css)放在Typora主题目录，重启Typora选择`Kdocs New`主题即可。如果需要字体文件，可以前往[字体目录](https://github.com/H0308/Kdocs-new/tree/main/fonts)进行获取，下载字体后在系统中安装字体，重启Typora即可
