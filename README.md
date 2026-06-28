@@ -1,5 +1,7 @@
-# Kdocs-new
-WPS金山文档+其他云文档结合的Typora主题
+# WPS金山文档+其他云文档结合的Typora主题
+
+## 介绍
+
 - 非代码字体：Alibaba PuHuiTi 2.0，阿里巴巴普惠体
 - 代码字体：Google Sans Code
 - 字体行高：参考Trae
@@ -11,3 +13,7 @@ WPS金山文档+其他云文档结合的Typora主题
 - 图片样式设计：参考个人网站（www.help-doc.top）
 - 引用块设计：参考飞书云文档和语雀
 - 代码高亮：IntelliJ IDEA 新版默认高亮
+
+## 使用
+
+下载[主题CSS文件](https://github.com/H0308/Kdocs-new/blob/main/kdocs-new.css)放在Typora主题目录，重启Typora选择`Kdocs New`主题即可
