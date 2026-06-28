@@ -1,0 +1,638 @@
+/* =====================================================
+kdocs-new — Typora custom theme
+Based on the original kdocs theme, refined with the
+following design references:
+
+• Non-code font: Alibaba PuHuiTi 2.0
+• Code font: Google Sans Code
+• Font Line height: inspired by Trae
+• Ordered and unordered list colors: inspired by Feishu Docs
+• Code block design: background inspired by Yuque and Notion
+• Inline code design: inspired by Notion
+• Outline sidebar design: inspired by Notion background color
+• Highlight block design: inspired by Notion callouts
+• Image style design: inspired by personal website (www.help-doc.top)
+• Blockquote design: inspired by Feishu Docs and Yuque
+
+Original KDocs inspiration:
+clean sans-serif typography, high line height,
+soft gray code blocks, red inline code,
+and colored alert / blockquote accents.
+===================================================== */
+
+:root {
+    /* ---- Core palette (computed from KDocs light docs) ---- */
+    --bg-color: #ffffff;
+    --side-bar-bg-color: #fafafa;
+    --text-color: #080f17;
+    --title-color: rgba(13, 13, 13, 0.9);
+    --secondary-text-color: rgba(8, 14, 23, 0.66);
+    --border-color: rgba(13, 13, 13, 0.12);
+    --link-color: #3370ff;
+    --selection-bg: #d6e4ff;
+
+    /* ---- Typography ---- */
+    --font-body: "Alibaba PuHuiTi 2.0", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+    --font-mono: "Google Sans Code", "Alibaba PuHuiTi 2.0", "Cascadia Code", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
+
+    --font-size: 16px;
+    --line-height: 2;          /* 32px for body text */
+    --heading-line-height: 2;  /* KDocs headings share body line-height */
+
+    /* ---- Inline code ---- */
+    --code-inline-color: #eb5757;
+    --code-inline-bg: #ededeb;
+
+    /* ---- Code blocks ---- */
+    --code-block-bg: #f9f8f7;
+    --code-block-color: #080f17;
+    --code-block-font-size: 14px;
+    --code-block-line-height: 28px;
+    --code-block-radius: 8px;
+    --code-header-color: rgba(8, 14, 23, 0.66);
+
+    /* ---- Blockquote ---- */
+    --blockquote-bg: #f9f8f7;
+    --blockquote-border: rgba(13, 13, 13, 0.12);
+    --blockquote-color: #4e5969;
+
+    /* ---- Alerts (GitHub-style alerts, KDocs palette) ---- */
+    --note-color: #0969da;
+    --note-bg: #e5f1ff;
+    --tip-color: #1f883d;
+    --tip-bg: #e8f4eb;
+    --warning-color: #c2410c;
+    --warning-bg: #fff7ed;
+    --important-color: #8250df;
+    --important-bg: #f0e6ff;
+    --caution-color: #cf222e;
+    --caution-bg: #fff0f0;
+}
+
+/* =====================================================
+1. Base & typography
+===================================================== */
+
+html {
+    font-size: var(--font-size);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: var(--line-height);
+}
+
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    --item-hover-bg-color: #f0f0f0;
+}
+
+::selection {
+    background-color: var(--selection-bg);
+    color: var(--text-color);
+}
+
+#write {
+    max-width: 850px;   /* 约 A4 纸宽度 */
+    margin: 0 auto;
+    padding: 40px 32px 120px;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 850px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 850px;
+    }
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 32px;
+}
+
+/* =====================================================
+2. Headings
+===================================================== */
+
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+    color: var(--title-color);
+    font-weight: 700;
+    line-height: var(--heading-line-height);
+    margin: 1.25em 0 0.5em;
+    cursor: text;
+}
+
+#write h1 {
+    font-size: 2.25rem;   /* 36px */
+    line-height: 1.625;   /* 58.5px */
+    margin-top: 2rem;
+}
+
+#write h2 {
+    font-size: 1.375rem;  /* 22px */
+}
+
+#write h3 {
+    font-size: 1.25rem;   /* 20px */
+}
+
+#write h4 {
+    font-size: 1.125rem;
+}
+
+#write h5,
+#write h6 {
+    font-size: 1rem;
+}
+
+#write h6 {
+    color: var(--secondary-text-color);
+}
+
+#write h1 tt,
+#write h1 code,
+#write h2 tt,
+#write h2 code,
+#write h3 tt,
+#write h3 code,
+#write h4 tt,
+#write h4 code,
+#write h5 tt,
+#write h5 code,
+#write h6 tt,
+#write h6 code {
+    font-size: inherit;
+}
+
+/* =====================================================
+3. Paragraphs, lists & inline elements
+===================================================== */
+
+p,
+dl {
+    margin: 0.5em 0;
+}
+
+ul,
+ol {
+    margin: 0.5em 0;
+    padding-left: 1.75em;
+}
+
+#write ul {
+    list-style-type: disc;
+}
+
+#write ul ul {
+    list-style-type: circle;
+}
+
+#write ul ul ul {
+    list-style-type: square;
+}
+
+#write ol {
+    list-style-type: decimal;
+}
+
+#write ol ol {
+    list-style-type: lower-alpha;
+}
+
+#write ol ol ol {
+    list-style-type: lower-roman;
+}
+
+li {
+    margin: 0.25em 0;
+    line-height: var(--line-height);
+}
+
+li::marker {
+    color: var(--link-color);
+    font-weight: 500;
+}
+
+/* 源码/编辑模式下列表标记也使用主题蓝色 */
+#write .cm-formatting-list,
+#write .cm-variable.cm-formatting-list,
+.typora-sourceview .cm-formatting-list {
+    color: var(--link-color);
+}
+
+li > ul,
+li > ol {
+    margin: 0;
+}
+
+#write .md-task-list-item {
+    list-style-type: none;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+strong {
+    font-weight: 700;
+}
+
+mark {
+    background-color: #fbf5b3;
+    color: inherit;
+    padding: 0.05em 0.25em;
+    border-radius: 3px;
+}
+
+/* =====================================================
+4. Inline code
+===================================================== */
+
+code,
+tt {
+    font-family: var(--font-mono);
+    font-size: 0.844rem;      /* ~13.5px */
+    line-height: 1.7;
+    color: var(--code-inline-color);
+    background-color: var(--code-inline-bg);
+    padding: 0.05em 0.3em 0.1em;
+    border-radius: 4px;
+    margin: 0 0.125em;
+    word-break: break-word;
+}
+
+/* =====================================================
+5. Code blocks
+===================================================== */
+
+.md-fences {
+    font-family: var(--font-mono);
+    font-size: var(--code-block-font-size);
+    line-height: var(--code-block-line-height);
+    color: var(--code-block-color);
+    background-color: var(--code-block-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--code-block-radius);
+    margin: 0.5em 0 1em;
+    padding: 2.5em 1em 1em;
+    position: relative;
+}
+
+.md-fences[lang]:not([lang=""])::before {
+    content: attr(lang);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.55em 0.85em 0 0.85em;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--code-header-color);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    pointer-events: none;
+    z-index: 11;
+}
+
+/* 默认隐藏原生语言输入框，避免它覆盖代码区域导致点击错位 */
+.md-fences .code-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    height: auto !important;
+    max-height: 2em;
+    width: auto !important;
+    max-width: none;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0.55em 0.85em 0 0.85em;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* 未聚焦代码块时彻底移除输入框 */
+.md-fences:not(.md-focus) .code-tooltip {
+    display: none !important;
+}
+
+/* 聚焦代码块后让输入框可点击（仍透明，点击后才会显示），但不遮挡代码正文 */
+.md-fences.md-focus .code-tooltip {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* 真正开始编辑语言名时显示输入框 */
+.md-fences.md-focus .code-tooltip:focus-within {
+    opacity: 1;
+}
+
+/* 编辑语言时隐藏静态语言标签，避免两个 XML 重叠 */
+.md-fences.md-focus:has(.code-tooltip:focus-within)[lang]:not([lang=""])::before {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.md-fences .code-tooltip .ty-input {
+    width: auto !important;
+    min-width: 6em;
+    display: inline-block !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.75rem !important;
+    color: var(--code-header-color) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: none;
+    background: transparent;
+    field-sizing: content;
+}
+
+.md-fences .CodeMirror-lines {
+    padding-left: 0;
+}
+
+.md-fences .CodeMirror-code {
+    font-family: var(--font-mono);
+}
+
+.md-fences .CodeMirror-linenumber {
+    color: rgba(8, 14, 23, 0.4);
+    font-family: var(--font-mono);
+}
+
+/* 代码块内选中文字的高亮颜色与正文一致 */
+.md-fences .cm-s-inner .CodeMirror-selected,
+.md-fences .cm-s-inner .CodeMirror-selectedtext,
+.md-fences .cm-s-inner.CodeMirror-focused .CodeMirror-selected,
+.md-fences .cm-s-inner .CodeMirror-line::selection,
+.md-fences .cm-s-inner .CodeMirror-line > span::selection,
+.md-fences .cm-s-inner .CodeMirror-line > span > span::selection {
+    background: var(--selection-bg) !important;
+    color: var(--text-color) !important;
+}
+
+pre.md-meta-block {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--secondary-text-color);
+    background-color: var(--code-block-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--code-block-radius);
+    padding: 0.75em 1em;
+    margin: 0.5em 0;
+}
+
+/* =====================================================
+6. Syntax highlighting (IntelliJ Light palette)
+===================================================== */
+
+.md-fences .cm-string,
+.md-fences .cm-string-2,
+.md-fences .cm-comment { color: #067D17; }
+
+.md-fences .cm-keyword,
+.md-fences .cm-builtin,
+.md-fences .cm-number,
+.md-fences .cm-qualifier,
+.md-fences .cm-type,
+.md-fences .cm-tag,
+.md-fences .cm-variable-3,
+.md-fences .cm-atom,
+.md-fences .cm-link { color: #003CCD; }
+
+.md-fences .cm-meta { color: #9E880D; }
+
+.md-fences .cm-variable-2 { color: #248F8F; }
+
+.md-fences .cm-attribute { color: #174AD4; }
+
+.md-fences .cm-variable { color: #000000; }
+
+.md-fences .cm-property { color: #871094; }
+
+.md-fences .cm-def,
+.md-fences .cm-operator,
+.md-fences .cm-bracket { color: #000000; }
+
+/* =====================================================
+7. Blockquotes
+===================================================== */
+
+blockquote {
+    color: #4e5969;
+    background-color: transparent;
+    border-left: 3px solid #e5e6eb;
+    border-radius: 0;
+    padding: 0 1em;
+    margin: 0.75em 0;
+}
+
+blockquote p,
+blockquote ul,
+blockquote ol {
+    margin: 0.35em 0;
+}
+
+blockquote blockquote {
+    margin-left: 0.5em;
+}
+
+/* =====================================================
+8. Alerts (GitHub-style Typora alerts)
+===================================================== */
+
+.md-alert {
+    padding: 0.75em 1em;
+    margin: 0.75em 0;
+    border-radius: 6px;
+    border: none;
+}
+
+.md-alert .md-alert-title {
+    font-weight: 700;
+    margin-bottom: 0.25em;
+}
+
+.md-alert p {
+    margin: 0.35em 0;
+}
+
+.md-alert.md-alert-note {
+    background-color: var(--note-bg);
+}
+
+.md-alert.md-alert-note .md-alert-title,
+.md-alert-text-note {
+    color: var(--note-color);
+}
+
+.md-alert.md-alert-tip {
+    background-color: var(--tip-bg);
+}
+
+.md-alert.md-alert-tip .md-alert-title,
+.md-alert-text-tip {
+    color: var(--tip-color);
+}
+
+.md-alert.md-alert-warning {
+    background-color: var(--warning-bg);
+}
+
+.md-alert.md-alert-warning .md-alert-title,
+.md-alert-text-warning {
+    color: var(--warning-color);
+}
+
+.md-alert.md-alert-important {
+    background-color: var(--important-bg);
+}
+
+.md-alert.md-alert-important .md-alert-title,
+.md-alert-text-important {
+    color: var(--important-color);
+}
+
+.md-alert.md-alert-caution {
+    background-color: var(--caution-bg);
+}
+
+.md-alert.md-alert-caution .md-alert-title,
+.md-alert-text-caution {
+    color: var(--caution-color);
+}
+
+/* =====================================================
+9. Tables
+===================================================== */
+
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: auto;
+    max-width: 100%;
+}
+
+table th,
+table td {
+    border: 1px solid var(--border-color);
+    padding: 0.55em 0.85em;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--code-block-bg);
+    font-weight: 700;
+}
+
+table tr:nth-child(2n) {
+    background-color: #fafafa;
+}
+
+/* =====================================================
+10. Task lists, dividers & images
+===================================================== */
+
+#write .md-task-list-item {
+    position: relative;
+    list-style-type: none;
+}
+
+#write li.md-task-list-item > input[type="checkbox"] {
+    display: inline-block;
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    margin-left: -1.4em;
+    margin-top: 0.6em;
+    border: 1.5px solid var(--secondary-text-color);
+    border-radius: 3px;
+    background-color: var(--bg-color);
+    cursor: pointer;
+}
+
+#write li.md-task-list-item > input[type="checkbox"]:checked {
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+}
+
+#write li.md-task-list-item > input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 2.5px;
+    top: 0;
+    width: 5px;
+    height: 9px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 1.5em 0;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+/* =====================================================
+11. Print / export
+===================================================== */
+
+@media print {
+    html {
+        font-size: 14px;
+    }
+
+    #write {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    pre,
+    blockquote,
+    .md-alert {
+        page-break-inside: avoid;
+    }
+}
