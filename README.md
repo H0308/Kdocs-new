@@ -1,2 +1,13 @@
 # Kdocs-new
 WPS金山文档+其他云文档结合的Typora主题
+- 非代码字体：Alibaba PuHuiTi 2.0，阿里巴巴普惠体
+- 代码字体：Google Sans Code
+- 字体行高：参考Trae
+- 有序列表和无序列表颜色：参考飞书云文档
+- 代码块设计：背景参考语雀和Notion、行高参考Trae
+- 行内代码设计：参考Notion
+- 目录侧边栏设计：参考Notion背景色
+- 高亮块设计：参考Notion高亮块
+- 图片样式设计：参考个人网站（www.help-doc.top）
+- 引用块设计：参考飞书云文档和语雀
+- 代码高亮：IntelliJ IDEA 新版默认高亮
